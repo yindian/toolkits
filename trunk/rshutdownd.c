@@ -13,6 +13,8 @@
 #define _XOPEN_SOURCE
 #include <unistd.h>
 
+#include <sys/socket.h>
+
 
 int check_passwd(const char * username,const char * password)
 {
@@ -70,5 +72,15 @@ void daemonize()
 
 int main()
 {
+	int sock;
+
+	daemonize();
+
+	sock=socket(AF_INET,SOCK_STREAM,0);
+	if(sock<0) {
+		perror("Can not create socket ");
+	}
+
+
 	return 0;
 }

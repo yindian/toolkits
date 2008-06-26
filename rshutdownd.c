@@ -4,6 +4,9 @@
  *	remote shutdown Linux daemon
  * */
 
+#include <string.h>
+#include <stdio.h>
+
 #include <fcntl.h>
 #include <sys/resource.h>
 #include <signal.h>
@@ -14,6 +17,8 @@
 #include <unistd.h>
 
 #include <sys/socket.h>
+#include <sys/types.h>
+#include <netinet/in.h>
 
 
 int check_passwd(const char * username,const char * password)
@@ -73,12 +78,32 @@ void daemonize()
 int main()
 {
 	int sock;
-
-	daemonize();
+	int acc;
+	struct sockaddr_in server;
+	struct sockaddr_in client;
+	int len;
+	char buf[1024];
+	
+//	daemonize();
 
 	sock=socket(AF_INET,SOCK_STREAM,0);
 	if(sock<0) {
 		perror("Can not create socket ");
+	}
+
+	bzero(&server,sizeof(server));
+	server.sin_family=AF_INET;
+	server.sin_addr.s_addr=htonl(INADDR_ANY);
+	server.sin_port=htons(1237);
+
+	bind(sock,(struct sockaddr*)&server,sizeof(server));
+	listen(sock,10);
+
+	for(;;) {
+		len=sizeof(client);
+		acc=accept(sock,(struct sockaddr*)&client,&len);
+		read(acc,buf,sizeof(buf));
+		printf("%s\n",buf);
 	}
 
 

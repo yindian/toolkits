@@ -3,5 +3,7 @@
 
 
 int main(int argc,char *argv[]) {
-	return WindowsTimeMain(argc,argv);
+	
+	CUBlogMain(argc,argv);
+	return 0;
 }

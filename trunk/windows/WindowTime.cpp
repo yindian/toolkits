@@ -36,10 +36,10 @@ int WindowsTimeMain(int argc,char *argv[])
 
     //设置注册表中相关的路径
 
-    LPCTSTR datepath="Software\\Microsoft\\Windows NT\\CurrentVersion";
-    LPCTSTR item="InstallDate";
-    LPCTSTR datepath2="Software\\Microsoft\\Windows\\CurrentVersion";
-    LPCTSTR item2="FirstInstallDate";
+    LPCTSTR datepath=L"Software\\Microsoft\\Windows NT\\CurrentVersion";
+    LPCTSTR item=L"InstallDate";
+    LPCTSTR datepath2=L"Software\\Microsoft\\Windows\\CurrentVersion";
+    LPCTSTR item2=L"FirstInstallDate";
 
     //打开注册表中的相应项
 
@@ -90,3 +90,4 @@ int WindowsTimeMain(int argc,char *argv[])
 
     return 0;
 }
+

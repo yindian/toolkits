@@ -33,20 +33,14 @@ int WindowsTimeMain(int argc,char *argv[])
     DWORD size;
 
     bool found=false;
-
-    //设置注册表中相关的路径
-
+    
     LPCTSTR datepath=L"Software\\Microsoft\\Windows NT\\CurrentVersion";
     LPCTSTR item=L"InstallDate";
     LPCTSTR datepath2=L"Software\\Microsoft\\Windows\\CurrentVersion";
     LPCTSTR item2=L"FirstInstallDate";
 
-    //打开注册表中的相应项
-
     long ret0=RegOpenKeyEx(HKEY_LOCAL_MACHINE,datepath,0,KEY_READ,&hKey);
     if(ret0==ERROR_SUCCESS) {
-        //读取相应的信息
-
         long ret2=RegQueryValueEx(hKey,item,NULL,&type,(LPBYTE)&it,&size);
         if(ret2==ERROR_SUCCESS) {
             found=true;

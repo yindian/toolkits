@@ -91,7 +91,7 @@ unsigned char *decode(unsigned char *src,int * len)
 #define BUF_SIZE 57
 #define LINE_SIZE 80
 
-int Base64Main(int argc,char * argv[])
+int main(int argc,char * argv[])
 {
 	FILE * fp,*fpo;
 	unsigned char * cdc;

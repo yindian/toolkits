@@ -1,4 +1,33 @@
-////
+/*
+ *
+
+Copyright 2009 http://code.google.com/p/toolkits/. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+  * Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  * Redistributions in binary form must reproduce the above
+    copyright notice, this list of conditions and the following
+    disclaimer in the documentation and/or other materials provided
+    with the distribution.
+  * Neither the name of http://code.google.com/p/toolkits/ nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
 
 #include <iostream>
 #include <string>
@@ -29,8 +58,8 @@ void FormatHTML(queue<element> &q) {
 	cout<<"<meta http-equiv=Content-Type content=\"text/html;charset=gb2312\">"<<endl;
 	cout<<"</head>\n<body>"<<endl;
 	cout<<"<font face=\"Arial, Helvetica\" size=4>"<<endl;
-	//cout<<"现在时间是"<<now<<"<br>"<<endl;
-	cout<<"总共有"<<q.size()<<"篇文章<br><br>\n"<<endl;
+	//cout<<""<<now<<"<br>"<<endl;
+	cout<<""<<q.size()<<"<br><br>\n"<<endl;
 	cout<<"<table>\n";
 
 	int i=1;
@@ -49,15 +78,15 @@ void FormatHTML(queue<element> &q) {
 }
 
 
-int CUBlogMain(int argc,char * argv[]) 
-{
+int main(int argc,char * argv[]) {
+
 	string list_base="/u/8780/article.php?frmid=0&page=";
 	string art_base="/u/8780/showart.php?id=";
 
 	boost::regex rexp("<a href=\"showart_([0-9]{6}).*?><font.*?><b>(.*?)</b></font></a>\n</td>\n<td.*?>([0-9-]*)</td>");
 	boost::regex fnp("[/\\:*?\"<>]");
 
-	
+
 	queue<element> q;
 	bool save=true;
 	if(argc==1)
@@ -113,32 +142,32 @@ int CUBlogMain(int argc,char * argv[])
 			boost::asio::read_until(socket, response, "\r\n");
 			// Check that response is OK.
 			response_stream >> http_version;
-			response_stream >> status_code;	
+			response_stream >> status_code;
 			std::getline(response_stream, status_message);
 			if (!response_stream || http_version.substr(0, 5) != "HTTP/") {
 				std::cout << "Invalid response\n";
 				return 1;
-			} 
+			}
 			if (status_code != 200) {
 				std::cout << "Response returned with status code " << status_code << "\n";
 				return 1;
 			}
 			// Read the response headers, which are terminated by a blank line.
 			boost::asio::read_until(socket, response, "\r\n\r\n");
-			
+
 			// Process the response headers.
 			std::string header;
 			while (std::getline(response_stream, header) && header != "\r")
 				;//std::cout << header << "\n";
 			std::cout << "\n";
-			
+
 
 			stringstream ss;
 			// Write whatever content we already have.
 			if (response.size() > 0) {
 				ss << &response;
 			}
-			
+
 			// Read until EOF.
 			while (boost::asio::read(socket, response,boost::asio::transfer_at_least(1), error))
 				ss<<&response;

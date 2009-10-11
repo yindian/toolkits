@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "windows", "windows\windows.vcproj", "{BC7A6C89-2834-49B3-B48E-67423A2DE076}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WindowsTime", "WindowsTime\WindowsTime.vcproj", "{A6C0AF44-37A3-4A70-8210-85C7B71EA37B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WindowsConsole", "WindowsConsole\WindowsConsole.vcproj", "{C9D061DE-E499-417C-886B-449C9DA0B032}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ShutdownMonitor", "ShutdownMonitor\ShutdownMonitor.vcproj", "{4E4D5D3C-3B08-4200-9F29-6A460F7AA846}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BC7A6C89-2834-49B3-B48E-67423A2DE076}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BC7A6C89-2834-49B3-B48E-67423A2DE076}.Debug|Win32.Build.0 = Debug|Win32
+		{BC7A6C89-2834-49B3-B48E-67423A2DE076}.Release|Win32.ActiveCfg = Release|Win32
+		{BC7A6C89-2834-49B3-B48E-67423A2DE076}.Release|Win32.Build.0 = Release|Win32
+		{A6C0AF44-37A3-4A70-8210-85C7B71EA37B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A6C0AF44-37A3-4A70-8210-85C7B71EA37B}.Debug|Win32.Build.0 = Debug|Win32
+		{A6C0AF44-37A3-4A70-8210-85C7B71EA37B}.Release|Win32.ActiveCfg = Release|Win32
+		{A6C0AF44-37A3-4A70-8210-85C7B71EA37B}.Release|Win32.Build.0 = Release|Win32
+		{C9D061DE-E499-417C-886B-449C9DA0B032}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C9D061DE-E499-417C-886B-449C9DA0B032}.Debug|Win32.Build.0 = Debug|Win32
+		{C9D061DE-E499-417C-886B-449C9DA0B032}.Release|Win32.ActiveCfg = Release|Win32
+		{C9D061DE-E499-417C-886B-449C9DA0B032}.Release|Win32.Build.0 = Release|Win32
+		{4E4D5D3C-3B08-4200-9F29-6A460F7AA846}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4E4D5D3C-3B08-4200-9F29-6A460F7AA846}.Debug|Win32.Build.0 = Debug|Win32
+		{4E4D5D3C-3B08-4200-9F29-6A460F7AA846}.Release|Win32.ActiveCfg = Release|Win32
+		{4E4D5D3C-3B08-4200-9F29-6A460F7AA846}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = 
+	EndGlobalSection
+EndGlobal

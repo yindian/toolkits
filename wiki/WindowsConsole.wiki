@@ -1,0 +1,5 @@
+= Introduction =
+  This program will show how to control the color of a console.
+
+= Platform =
+  Win32 Console Application

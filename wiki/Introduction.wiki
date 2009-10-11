@@ -3,13 +3,13 @@
 
 = Structures =
   == Windows ==
-  All Programs for Windows are organized as a solution. Each program has a project.
+  All programs for Windows are organized as a solution. Each program has a project.
 
 
 = Content =
   == Windows ==
-    * [ShutdownMonitor] Shutdown the monitor.
-    * [WindowsTime] Show the install time of the running windows. Also show how long the windows is running since startup.
-    * [WindowsConsole] colorful windows console.
+    * [ShutdownMonitor]: Shutdown the monitor.
+    * [WindowsTime]: Show the install time of the running windows. Also show how long the windows is running since startup.
+    * [WindowsConsole]: Show colorful windows console.
   == Linux ==
-    * [rshutdown] a deamon progress to shutdown linux.
+    * [rshutdown]: a daemon progress to shutdown linux.

@@ -40,6 +40,7 @@ using Microsoft.Win32;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.Web;
+using System.Threading;
 
 namespace csPKUIPGW
 {
@@ -76,8 +77,8 @@ namespace csPKUIPGW
         {
             string username = this.textUserName.Text;
             string password = this.textPassword.Text;
-            //MessageBox.Show(username+password);
-            LoginITS();
+            Thread  th=new Thread(new ThreadStart(this.LoginITS));
+            th.Start();
             SavePassword();
         }
 

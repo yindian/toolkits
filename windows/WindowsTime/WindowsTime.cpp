@@ -90,7 +90,21 @@ int main(int argc,char *argv[]) {
 		}
     }
 
-    if(found) {
+	bool show_curr_time = true;
+	if(show_curr_time) {
+		char tmp[128];
+		char weekdays[][10]={"Sunday","Monday","Tuesday","Wednesday",
+							 "Thursday","Friday","Saturday"};
+		SYSTEMTIME systime;
+		GetLocalTime(&systime);
+		sprintf(tmp,"%4d/%02d/%02d %02d:%02d:%02d.%03d %s\n" 
+		        ,systime.wYear,systime.wMonth,systime.wDay 
+                ,systime.wHour,systime.wMinute,systime.wSecond,systime.wMilliseconds 
+                ,weekdays[systime.wDayOfWeek]);
+		MessageBox(NULL,(LPCSTR)tmp, "Current Time", MB_OK);
+	}
+
+	if(found) {
         time_t tm;
         tm=installtime;
         char tmp[128];

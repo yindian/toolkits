@@ -50,7 +50,7 @@ namespace md5sum
         {
             InitializeComponent();
             this.filename = "";
-            md5sum = "";
+            this.md5sum = "";
             this.openFileDialog = new OpenFileDialog();
         }
 
@@ -61,20 +61,22 @@ namespace md5sum
 
         private void SelectFile_Click(object sender, EventArgs e)
         {
-            openFileDialog.ShowDialog();
-            this.filename = this.openFileDialog.FileName;
-            textFileName.Text = this.filename;
-            textMd5sum.Text = "Calculating";
-            Thread th = new Thread(new ThreadStart(this.Md5sum));
-            th.Start();
-            th.Join();
-            try
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                textMd5sum.Text = this.md5sum;
-            }
-            catch (Exception MSG)
-            {
-                MessageBox.Show(MSG.ToString());
+                this.filename = this.openFileDialog.FileName;
+                textFileName.Text = this.filename;
+                textMd5sum.Text = "Calculating";
+                Thread th = new Thread(new ThreadStart(this.Md5sum));
+                th.Start();
+                th.Join();
+                try
+                {
+                    textMd5sum.Text = this.md5sum;
+                }
+                catch (Exception MSG)
+                {
+                    MessageBox.Show(MSG.ToString());
+                }
             }
         }
 

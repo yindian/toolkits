@@ -11,5 +11,8 @@
     * [ShutdownMonitor]: Shutdown the monitor.
     * [WindowsTime]: Show the install time of the running windows. Also show how long the windows is running since startup.
     * [WindowsConsole]: Show colorful windows console.
+    * [md5sum]: A tool to calculate the md5 checksum of a file.
+    * [sha1sum]: A tool to calculate the sha1 checksum of a file.
+
   == Linux ==
     * [rshutdown]: a daemon progress to shutdown linux.

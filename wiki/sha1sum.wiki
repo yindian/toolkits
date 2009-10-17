@@ -1,0 +1,11 @@
+= Introduction =
+
+ A tool to calculate the sha1 checksum of a file.
+ 
+= Platform =
+
+Windows
+
+= Language =
+
+C#, Windows Form Apllication

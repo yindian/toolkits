@@ -111,6 +111,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FileMd5";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "File md5sum";
             this.Load += new System.EventHandler(this.FileMd5_Load);
             this.ResumeLayout(false);

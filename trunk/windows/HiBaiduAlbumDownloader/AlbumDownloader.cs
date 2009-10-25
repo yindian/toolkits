@@ -49,5 +49,23 @@ namespace HiBaiduAlbumDownloader
         {
 
         }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void buttonSelectDir_Click(object sender, EventArgs e)
+        {
+            if (this.folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                this.textBoxDestDir.Text = this.folderBrowserDialog.SelectedPath;
+            }
+        }
+
+        private void buttonOK_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

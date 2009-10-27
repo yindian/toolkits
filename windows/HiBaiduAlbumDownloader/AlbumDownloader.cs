@@ -35,6 +35,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading;
+using System.Web;
 
 namespace HiBaiduAlbumDownloader
 {
@@ -47,7 +49,8 @@ namespace HiBaiduAlbumDownloader
 
         private void AlbumDownloader_Load(object sender, EventArgs e)
         {
-
+            this.textBoxUserName.Text = "";
+            this.textBoxDestDir.Text = "";
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -65,7 +68,50 @@ namespace HiBaiduAlbumDownloader
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
+            //TODO: check username and dirname
+            MethodInvoker mi = new MethodInvoker(this.DownloadImages);
+            mi.BeginInvoke(null, null);
+        }
 
+        private void linkPage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://code.google.com/p/toolkits/wiki/HiBaiduAlbumDownloader");
+        }
+
+        private void DownloadImages()
+        {
+            HiBaiduAlbumDownloader dler = new HiBaiduAlbumDownloader(this.textBoxUserName.Text);
+            DiskImagePersistencer p = new DiskImagePersistencer(dler, this.textBoxDestDir.Text);
+            p.init();
+            dler.setPersistence(p);
+            dler.onDownLoadProgress += new HiBaiduAlbumDownloader.dDownloadProgress(downloading);
+            dler.onInfoChange += new HiBaiduAlbumDownloader.dChangeInfo(changeinfo); 
+            dler.getAll();
+            MessageBox.Show("Download OK");
+        }
+
+        private void downloading(long total, long current)
+        {
+            if (this.InvokeRequired)
+            {
+                this.Invoke(new HiBaiduAlbumDownloader.dDownloadProgress(downloading), new object[]{ total, current });
+            }
+            else {
+                this.DownloadingProgress.Maximum = (int)total;
+                this.DownloadingProgress.Value = (int)current;
+            }
+        }
+
+        private void changeinfo(string info)
+        {
+            if (this.InvokeRequired)
+            {
+                this.Invoke(new HiBaiduAlbumDownloader.dChangeInfo(changeinfo), new object[] {info});
+            }
+            else
+            {
+                this.labelDownloading.Text = info;
+            }
         }
     }
 }

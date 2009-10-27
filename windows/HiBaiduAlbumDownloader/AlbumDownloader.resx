@@ -126,7 +126,7 @@
     <value>SimSun, 10.5pt</value>
   </data>
   <data name="labelUserName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>36, 30</value>
+    <value>23, 34</value>
   </data>
   <data name="labelUserName.Size" type="System.Drawing.Size, System.Drawing">
     <value>49, 14</value>
@@ -147,7 +147,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelUserName.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>9</value>
   </data>
   <data name="labelDestDir.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -156,7 +156,7 @@
     <value>SimSun, 10.5pt</value>
   </data>
   <data name="labelDestDir.Location" type="System.Drawing.Point, System.Drawing">
-    <value>38, 76</value>
+    <value>23, 71</value>
   </data>
   <data name="labelDestDir.Size" type="System.Drawing.Size, System.Drawing">
     <value>49, 14</value>
@@ -177,16 +177,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelDestDir.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>8</value>
   </data>
   <data name="buttonOK.Font" type="System.Drawing.Font, System.Drawing">
     <value>SimSun, 10.5pt</value>
   </data>
   <data name="buttonOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>62, 123</value>
+    <value>71, 156</value>
   </data>
   <data name="buttonOK.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 23</value>
+    <value>63, 25</value>
   </data>
   <data name="buttonOK.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -204,16 +204,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonOK.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>7</value>
   </data>
   <data name="buttonCancel.Font" type="System.Drawing.Font, System.Drawing">
     <value>SimSun, 10.5pt</value>
   </data>
   <data name="buttonCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>152, 123</value>
+    <value>161, 156</value>
   </data>
   <data name="buttonCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 23</value>
+    <value>63, 25</value>
   </data>
   <data name="buttonCancel.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -231,13 +231,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonCancel.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>6</value>
   </data>
   <data name="textBoxUserName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>91, 29</value>
+    <value>78, 32</value>
   </data>
   <data name="textBoxUserName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>94, 21</value>
+    <value>158, 20</value>
   </data>
   <data name="textBoxUserName.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -252,13 +252,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBoxUserName.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>5</value>
   </data>
   <data name="buttonSelectDir.Location" type="System.Drawing.Point, System.Drawing">
-    <value>192, 67</value>
+    <value>242, 66</value>
   </data>
   <data name="buttonSelectDir.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 23</value>
+    <value>35, 25</value>
   </data>
   <data name="buttonSelectDir.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -276,13 +276,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonSelectDir.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>4</value>
   </data>
   <data name="textBoxDestDir.Location" type="System.Drawing.Point, System.Drawing">
-    <value>91, 69</value>
+    <value>78, 69</value>
   </data>
   <data name="textBoxDestDir.Size" type="System.Drawing.Size, System.Drawing">
-    <value>94, 21</value>
+    <value>158, 20</value>
   </data>
   <data name="textBoxDestDir.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -297,22 +297,107 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBoxDestDir.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>3</value>
   </data>
   <metadata name="folderBrowserDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="linkPage.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="linkPage.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="linkPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>263, 10</value>
+  </data>
+  <data name="linkPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 13</value>
+  </data>
+  <data name="linkPage.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="linkPage.Text" xml:space="preserve">
+    <value>项目主页</value>
+  </data>
+  <data name="&gt;&gt;linkPage.Name" xml:space="preserve">
+    <value>linkPage</value>
+  </data>
+  <data name="&gt;&gt;linkPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;linkPage.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;linkPage.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="DownloadingProgress.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="DownloadingProgress.Location" type="System.Drawing.Point, System.Drawing">
+    <value>48, 133</value>
+  </data>
+  <data name="DownloadingProgress.Size" type="System.Drawing.Size, System.Drawing">
+    <value>229, 17</value>
+  </data>
+  <data name="DownloadingProgress.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;DownloadingProgress.Name" xml:space="preserve">
+    <value>DownloadingProgress</value>
+  </data>
+  <data name="&gt;&gt;DownloadingProgress.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DownloadingProgress.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;DownloadingProgress.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="labelDownloading.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelDownloading.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="labelDownloading.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 105</value>
+  </data>
+  <data name="labelDownloading.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 13</value>
+  </data>
+  <data name="labelDownloading.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;labelDownloading.Name" xml:space="preserve">
+    <value>labelDownloading</value>
+  </data>
+  <data name="&gt;&gt;labelDownloading.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelDownloading.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;labelDownloading.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 12</value>
+    <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>332, 189</value>
+    <value>324, 190</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>AlbumDownloader</value>
+    <value>AlbumDownloader(Alpha) Build 1</value>
   </data>
   <data name="&gt;&gt;folderBrowserDialog.Name" xml:space="preserve">
     <value>folderBrowserDialog</value>

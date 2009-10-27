@@ -37,6 +37,9 @@
             this.buttonSelectDir = new System.Windows.Forms.Button();
             this.textBoxDestDir = new System.Windows.Forms.TextBox();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.linkPage = new System.Windows.Forms.LinkLabel();
+            this.DownloadingProgress = new System.Windows.Forms.ProgressBar();
+            this.labelDownloading = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelUserName
@@ -82,10 +85,30 @@
             this.textBoxDestDir.Name = "textBoxDestDir";
             this.textBoxDestDir.ReadOnly = true;
             // 
+            // linkPage
+            // 
+            resources.ApplyResources(this.linkPage, "linkPage");
+            this.linkPage.Name = "linkPage";
+            this.linkPage.TabStop = true;
+            this.linkPage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkPage_LinkClicked);
+            // 
+            // DownloadingProgress
+            // 
+            resources.ApplyResources(this.DownloadingProgress, "DownloadingProgress");
+            this.DownloadingProgress.Name = "DownloadingProgress";
+            // 
+            // labelDownloading
+            // 
+            resources.ApplyResources(this.labelDownloading, "labelDownloading");
+            this.labelDownloading.Name = "labelDownloading";
+            // 
             // AlbumDownloader
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.labelDownloading);
+            this.Controls.Add(this.DownloadingProgress);
+            this.Controls.Add(this.linkPage);
             this.Controls.Add(this.textBoxDestDir);
             this.Controls.Add(this.buttonSelectDir);
             this.Controls.Add(this.textBoxUserName);
@@ -93,6 +116,8 @@
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.labelDestDir);
             this.Controls.Add(this.labelUserName);
+            this.HelpButton = true;
+            this.MaximizeBox = false;
             this.Name = "AlbumDownloader";
             this.Load += new System.EventHandler(this.AlbumDownloader_Load);
             this.ResumeLayout(false);
@@ -110,6 +135,9 @@
         private System.Windows.Forms.Button buttonSelectDir;
         private System.Windows.Forms.TextBox textBoxDestDir;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
+        private System.Windows.Forms.LinkLabel linkPage;
+        private System.Windows.Forms.ProgressBar DownloadingProgress;
+        private System.Windows.Forms.Label labelDownloading;
     }
 }
 

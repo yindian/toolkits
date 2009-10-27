@@ -21,7 +21,8 @@
 = 待改进 =
 
   * 提供选择下载某些的相册的功能
-  * 检查相册名，以防止有的相册名不能用来创建目录。
+  * 检查相册名，以防止有的相册名不能用来创建目录
+  * [http://code.google.com/p/toolkits/issues/list 报告错误]，或者 [http://code.google.com/p/toolkits/issues/list 功能建议]
 
 = 更新 =
 

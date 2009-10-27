@@ -13,6 +13,7 @@
     * [WindowsConsole]: Show colorful windows console.
     * [md5sum]: A tool to calculate the md5 checksum of a file.
     * [sha1sum]: A tool to calculate the sha1 checksum of a file.
+    * [HiBaiduAlbumDownloader]: A tool to download images from baidu space ([http://hi.baidu.com])
 
   == Linux ==
     * [rshutdown]: a daemon progress to shutdown linux.

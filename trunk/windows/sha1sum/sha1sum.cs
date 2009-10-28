@@ -46,6 +46,9 @@ namespace sha1sum
         private string filename;
         private string sha1;
 
+        public delegate void dChangeInfo(string info);
+        public event dChangeInfo onInfoChange;
+
         public sha1sum()
         {
             InitializeComponent();
@@ -65,15 +68,14 @@ namespace sha1sum
                 this.filename = this.openFileDialog.FileName;
                 textFile.Text = this.filename;
                 textSha1sum.Text = "Calculating";
-                Thread th = new Thread(new ThreadStart(this.Sha1sum));
-                th.Start();
-                th.Join();
-                textSha1sum.Text = this.sha1;
+                MethodInvoker mi = new MethodInvoker(this.Sha1sum);
+                mi.BeginInvoke(null, null);
             }
         }
 
         private void Sha1sum()
         {
+            this.onInfoChange += new dChangeInfo(changeinfo);
             try
             {
                 FileStream fs = System.IO.File.OpenRead(this.filename);
@@ -85,11 +87,26 @@ namespace sha1sum
                     sBuilder.Append(result[i].ToString("X2"));
                 }
                 this.sha1 = sBuilder.ToString();
-                //this.sha1sum = BitConverter.ToString(result);
             }
             catch (Exception msg)
             {
                 MessageBox.Show(msg.ToString());
+            }
+            if (onInfoChange != null)
+            {
+                onInfoChange(this.sha1);
+            }
+        }
+
+        private void changeinfo(string info)
+        {
+            if (this.InvokeRequired)
+            {
+                this.Invoke(new dChangeInfo(changeinfo), new object[] { info });
+            }
+            else
+            {
+                this.textSha1sum.Text = info;
             }
         }
     }

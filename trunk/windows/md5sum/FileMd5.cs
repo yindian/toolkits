@@ -46,6 +46,9 @@ namespace md5sum
         private string filename;
         private string md5sum;
 
+        public delegate void dChangeInfo(string info);
+        public event dChangeInfo onInfoChange;
+
         public FileMd5()
         {
             InitializeComponent();
@@ -66,17 +69,10 @@ namespace md5sum
                 this.filename = this.openFileDialog.FileName;
                 textFileName.Text = this.filename;
                 textMd5sum.Text = "Calculating";
-                Thread th = new Thread(new ThreadStart(this.Md5sum));
-                th.Start();
-                th.Join();
-                try
-                {
-                    textMd5sum.Text = this.md5sum;
-                }
-                catch (Exception MSG)
-                {
-                    MessageBox.Show(MSG.ToString());
-                }
+
+                MethodInvoker mi = new MethodInvoker(this.Md5sum);
+                mi.BeginInvoke(null, null);
+
             }
         }
 
@@ -87,6 +83,7 @@ namespace md5sum
 
         private void Md5sum()
         {
+            this.onInfoChange += new dChangeInfo(changeinfo);
             try
             {
                 FileStream fs = System.IO.File.OpenRead(this.filename);
@@ -103,6 +100,22 @@ namespace md5sum
             catch (Exception msg)
             {
                 MessageBox.Show(msg.ToString());
+            }
+            if (onInfoChange != null)
+            {
+                onInfoChange(this.md5sum);
+            }
+        }
+
+        private void changeinfo(string info)
+        {
+            if (this.InvokeRequired)
+            {
+                this.Invoke(new dChangeInfo(changeinfo), new object[] { info });
+            }
+            else
+            {
+                this.textMd5sum.Text = info;
             }
         }
     }

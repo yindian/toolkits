@@ -10,7 +10,7 @@ Calculate days between two dates.
 
 在Android模拟器上的界面如图
 
-[http://pyutility.appspot.com/imageservice/get/5?nouse=datediff.jpg UI]
+[http://pyutility.appspot.com/imageservice/get/5?nouse=datediff.jpg]
 
 = 链接 =
 [http://code.google.com/p/pytoolkits/wiki/DateDuration PyS60版]

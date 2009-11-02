@@ -15,5 +15,8 @@
     * [sha1sum]: A tool to calculate the sha1 checksum of a file.
     * [HiBaiduAlbumDownloader]: A tool to download images from baidu space.
 
+  == Android ==
+    * [DateDiff]: Calculate days between two dates.
+
   == Linux ==
     * [rshutdown]: a daemon progress to shutdown linux.

@@ -34,8 +34,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.zip.Inflater;
-import java.util.zip.InflaterInputStream;
+
+import com.jcraft.jzlib.ZInputStream;
 
 class Chunk {
 	public int offset;
@@ -93,13 +93,13 @@ public class DictZipFile {
 		}
 		int firstchunk = this.pos/this.chlen;
         int offset = this.pos - firstchunk*this.chlen;
-        int lastchunk = 0;
-        int finish = 0;
-        int npos = 0;
-        lastchunk = (this.pos+size)/this.chlen;
-        finish = offset+size;
-        npos = this.pos+size;
-        
+        int lastchunk = (this.pos+size)/this.chlen;
+        /*
+         * int finish = 0;
+         * int npos = 0;
+         * finish = offset+size;
+         * npos = this.pos+size;
+         */
         ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
         System.out.println("firstchunk = "+ firstchunk);
         System.out.println("lastchunk = "+ lastchunk);
@@ -239,13 +239,11 @@ public class DictZipFile {
 		byte [] buff = new byte[size];
 		System.out.println(this.dictzip.read(buff));
 		/* */
-		InflaterInputStream  gz = new InflaterInputStream(new ByteArrayInputStream(buff),
-				new Inflater(true));
+		ZInputStream zIn=new ZInputStream(new ByteArrayInputStream(buff), true);
 		ByteArrayOutputStream byteStream = new ByteArrayOutputStream(); 
 		byte[] buf = new byte[1024]; 
         int numRead = 0; 
-        while((numRead = gz.read(buf)) != -1) 
-        { 
+        while((numRead = zIn.read(buf, 0 ,1024)) != -1) { 
             byteStream.write(buf, 0, numRead); 
         } 
         return byteStream.toByteArray(); 

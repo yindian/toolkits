@@ -145,6 +145,6 @@ public class StarDict {
 		StringBuffer sb = new StringBuffer();
 		//System.out.println(dict.getVersion());
 		System.out.println(dict.getWord(400000, sb));
-		//System.out.println(sb.toString());
+		System.out.println(sb.toString());
 	}
 }

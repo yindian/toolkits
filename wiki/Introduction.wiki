@@ -17,6 +17,7 @@
 
   == Android ==
     * [DateDiff]: Calculate days between two dates.
+    * [YAStarDict]: An Android StarDict. Refer to [http://stardict.sourceforge.net/ StarDict] for more information.
 
   == Linux ==
     * [rshutdown]: a daemon progress to shutdown linux.

@@ -21,3 +21,6 @@
 
   == Linux ==
     * [rshutdown]: a daemon progress to shutdown linux.
+
+  == Misc ==
+    * [misc]: Some useful code snippet.

@@ -64,7 +64,6 @@ public class YAStarDictMain extends Activity {
 			}
 		});
         button.setOnClickListener( new View.OnClickListener() {
-			
 			@Override
 			public void onClick(View v) {
 				tv.setText("Please input a word");

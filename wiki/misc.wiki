@@ -4,4 +4,4 @@
 
 = Details =
 
- [http://code.google.com/p/toolkits/source/browse/#svn/trunk/misc/java/com/googlecode/toolkits/stardict stardict]. Java Code that read DictZip file.
+ [http://code.google.com/p/toolkits/source/browse/#svn/trunk/misc/java/com/googlecode/toolkits/stardict stardict]. Java Code that read dictzip file.

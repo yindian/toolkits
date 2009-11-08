@@ -34,17 +34,25 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
+class Location {
+	public int offset;
+	public int size;
+}
 
-public class StarDict {
-	
+public class StarDict {	
+	/**/
 	RandomAccessFile index;
 	RandomAccessFile yaindex;
 	DictZipFile dz;
 	String dictname;
+	public String last_error = "";
 	
-	
+	/**
+	 * 
+	 */
 	public StarDict() {
-		this("g:\\stardict\\dict");
+		this("//sdcard/dict");
+		//this("g:\\stardict\\dict");
 	}
 	
 	/**
@@ -54,26 +62,25 @@ public class StarDict {
 	public StarDict(String dictname) {
 		try {
 			this.dictname = dictname;
-			this.index = new RandomAccessFile(dictname+".idx","r");
-			this.dz = new DictZipFile(dictname+".dict.dz");
-			this.yaindex = new RandomAccessFile(dictname+".yaidx","r");
-			
-			this.dz.runtest();
+			this.index = new RandomAccessFile(dictname+".idx", "r");
+			this.dz = new DictZipFile(dictname+".dict.gz");
+			this.yaindex = new RandomAccessFile(dictname+".yaidx", "r");
+			//this.dz.runtest();
 		}
 		catch(FileNotFoundException e) {
+			last_error = e.toString();
 			e.printStackTrace();
 		}
 		catch(Exception e) {
+			last_error = e.toString();
 			e.printStackTrace();
 		}
 	}
 	
-	/**
-	 * 
-	 * @param p
-	 * @return the p-th word
-	 */
-	public String getWord(int p, StringBuffer exp) {
+	public String getWord(int p, Location l) {
+		if(l==null) {
+			l = new Location();
+		}
 		String word = null;
 		byte [] buffer = new byte[1024];
 		int dataoffset = 0;
@@ -107,18 +114,80 @@ public class StarDict {
 					break;
 				}
 			}
-			System.out.println(datasize);
-			buffer = new byte[datasize];
-			this.dz.seek(dataoffset);
-			System.out.println(this.dz.read(buffer, datasize));
-			exp.append(new String(buffer,"UTF-8"));
+			//System.out.println(datasize);
+			//buffer = new byte[datasize];
+			//this.dz.seek(dataoffset);
+			//this.dz.read(buffer, datasize);
+			l.offset = dataoffset;
+			l.size = datasize;
 		}
 		catch(Exception e) {
+			last_error = e.toString();
 			e.printStackTrace();
 		}
 		return word;
 	}
 	
+	/**
+	 * 
+	 * @param word
+	 * @return the explanation of the word
+	 */
+	public String getExplanation(String word) {
+		int i = 0;
+		int max = getWordNum();
+		String w = "";
+		int mid = 0;
+		Location l = new Location();
+		String exp = null;
+		//return this.dz.test()+this.dz.last_error;
+		///*
+		while( i<=max ) {
+			mid = (i + max)/2;
+			w = getWord(mid, l);
+			if (w.compareTo(word)>0) {
+				max = mid-1;
+			}
+			else if(w.compareTo(word)<0) {
+				i = mid+1;
+			} 
+			else {
+				break;
+			}
+		}
+		//get explanation
+		byte [] buffer = new byte[l.size];
+		this.dz.seek(l.offset);
+		try {
+			this.dz.read(buffer, l.size);
+		}
+		catch(Exception e) {
+			last_error = e.toString();
+			buffer = null;
+			exp = e.toString();
+		}
+		
+		try {
+			if (buffer == null) {
+				exp = "Error when reading data\n"+exp;
+			}
+			else {
+				exp = new String(buffer, "UTF8");
+			}
+		}
+		catch(Exception e) {
+			last_error = e.toString();
+			e.printStackTrace();
+		}
+		return w+"\n"+exp;
+		//return mid+"\n"+l.offset+exp+l.size;
+		//*/
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
 	public String getVersion() {
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(this.dictname+".ifo"));
@@ -137,14 +206,32 @@ public class StarDict {
 		return "UNKNOWN VERSION";
 	}
 	
-	/**
-	 * @param args
-	 */
+	public int getWordNum() {
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(this.dictname+".ifo"));
+			String line = br.readLine();
+			while(line != null) {
+				String [] version = line.split("=");
+				if (version.length == 2 && version[0].equals("wordcount")) {
+					return Integer.parseInt(version[1]);
+				}
+				line = br.readLine();
+			}
+		}
+		catch(IOException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	
 	public static void main(String[] args) {
 		StarDict dict = new StarDict();
-		StringBuffer sb = new StringBuffer();
 		//System.out.println(dict.getVersion());
-		System.out.println(dict.getWord(400000, sb));
-		System.out.println(sb.toString());
+		Location l = new Location();
+		String w = dict.getWord(400000, l);
+		System.out.println(w);
+		//System.out.println(dict.getExplanation(w));
+		System.out.println(dict.getExplanation("this"));
 	}
 }

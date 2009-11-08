@@ -52,7 +52,6 @@ public class StarDict {
 	 */
 	public StarDict() {
 		this("//sdcard/dict");
-		//this("g:\\stardict\\dict");
 	}
 	
 	/**
@@ -63,7 +62,7 @@ public class StarDict {
 		try {
 			this.dictname = dictname;
 			this.index = new RandomAccessFile(dictname+".idx", "r");
-			this.dz = new DictZipFile(dictname+".dict.gz");
+			this.dz = new DictZipFile(dictname+".dict.dz");
 			this.yaindex = new RandomAccessFile(dictname+".yaidx", "r");
 			//this.dz.runtest();
 		}
@@ -201,6 +200,7 @@ public class StarDict {
 			}
 		}
 		catch(IOException e) {
+			last_error = e.toString();
 			e.printStackTrace();
 		}
 		return "UNKNOWN VERSION";
@@ -219,6 +219,7 @@ public class StarDict {
 			}
 		}
 		catch(IOException e) {
+			last_error = e.toString();
 			e.printStackTrace();
 		}
 		return 0;

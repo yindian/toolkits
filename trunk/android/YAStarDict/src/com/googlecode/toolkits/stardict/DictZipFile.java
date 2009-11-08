@@ -45,8 +45,11 @@ class Chunk {
 		size = s;
 	}
 }
-public class DictZipFile {
 
+public class DictZipFile {
+	/**
+	 * 
+	 */
 	private RandomAccessFile dictzip;
 	
 	final int FTEXT = 1;
@@ -65,6 +68,7 @@ public class DictZipFile {
 	public String last_error = "";
 	
 	private List<Chunk> chunks;
+	
 	/**
 	 * 
 	 * @param dictzipfilename
@@ -83,7 +87,6 @@ public class DictZipFile {
 		}
 	}
 	
-
 	/**
 	 * 
 	 * @param buff
@@ -104,19 +107,21 @@ public class DictZipFile {
          * npos = this.pos+size;
          */
         ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
-        //System.out.println("firstchunk = "+ firstchunk);
-        //System.out.println("lastchunk = "+ lastchunk);
         for(int i=firstchunk;i<=lastchunk;i++) {
         	byteStream.write(this._readchunk(i));
         }
         byte [] buf = byteStream.toByteArray();
-        //System.out.println("buffer len = "+buf.length);
         for(int i=0;i<size;i++) {
         	buff[i]=buf[offset+i];
         }
         return 0;
 	}
 	
+	/**
+	 * 
+	 * @param pos
+	 * @param where
+	 */
 	public void seek(int pos, int where) {
 		if (where == 0) {
 			this.pos=pos;
@@ -129,18 +134,34 @@ public class DictZipFile {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param pos
+	 */
 	public void seek(int pos) {
 		this.seek(pos,0);
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public int tell() {
 		return this.pos;
 	}
 	
+	/**
+	 * 
+	 * @throws Exception
+	 */
 	public void close() throws Exception{
 		this.dictzip.close();
 	}
 	
+	/**
+	 * 
+	 * @throws Exception
+	 */
 	private void _read_gzip_header() throws Exception {
 		byte [] buffer = new byte[2];
 		dictzip.read(buffer);
@@ -229,12 +250,16 @@ public class DictZipFile {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param n
+	 * @return
+	 * @throws Exception
+	 */
 	private byte [] _readchunk(int n) throws Exception{
-		//System.out.println(this.chunks.size());
 		if(n>=this.chunks.size()) {
 			return null;
 		}
-		//System.out.println("seek "+(this._firstpos+this.chunks.get(n).offset ));
 		this.dictzip.seek(this._firstpos+this.chunks.get(n).offset);
 		int size = this.chunks.get(n).size;
 		byte [] buff = new byte[size];

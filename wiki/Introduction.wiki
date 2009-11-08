@@ -4,8 +4,9 @@
 
 = Structures =
   == Windows ==
-  All programs for Windows are organized as a solution. Each program has a project.
-
+  All programs for Windows are organized as a solution named <b>windows</b>. Each program has a project.
+  == Android ==
+  All programs for Android are organized in <b>android</b> directory . Each program has a project.
 
 = Content =
   == Windows ==

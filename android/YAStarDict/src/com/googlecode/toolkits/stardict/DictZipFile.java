@@ -62,6 +62,8 @@ public class DictZipFile {
 	private int chlen = 0;
 	private int _firstpos = 0;
 	
+	public String last_error = "";
+	
 	private List<Chunk> chunks;
 	/**
 	 * 
@@ -76,6 +78,7 @@ public class DictZipFile {
 			this._read_gzip_header();
 		}
 		catch(Exception e) {
+			last_error = e.toString();
 			e.printStackTrace();
 		}
 	}
@@ -101,14 +104,13 @@ public class DictZipFile {
          * npos = this.pos+size;
          */
         ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
-        System.out.println("firstchunk = "+ firstchunk);
-        System.out.println("lastchunk = "+ lastchunk);
+        //System.out.println("firstchunk = "+ firstchunk);
+        //System.out.println("lastchunk = "+ lastchunk);
         for(int i=firstchunk;i<=lastchunk;i++) {
-        	//System.out.println(this._readchunk(i).length);
         	byteStream.write(this._readchunk(i));
         }
         byte [] buf = byteStream.toByteArray();
-        System.out.println("buffer len = "+buf.length);
+        //System.out.println("buffer len = "+buf.length);
         for(int i=0;i<size;i++) {
         	buff[i]=buf[offset+i];
         }
@@ -152,7 +154,7 @@ public class DictZipFile {
 			throw new Exception("Unknown compression method");
 		}
 		byte flag = dictzip.readByte();
-		System.out.println("flag = "+flag);
+		//System.out.println("flag = "+flag);
 		this._firstpos+=1;
 		dictzip.readInt();
 		dictzip.readByte();
@@ -189,7 +191,6 @@ public class DictZipFile {
 			}
 			int chpos = 0;
 			for(Integer i : lens) {
-				//System.out.println(i);
 				this.chunks.add(new Chunk(chpos,i));
 				chpos += i;
 			}
@@ -229,16 +230,16 @@ public class DictZipFile {
 	}
 	
 	private byte [] _readchunk(int n) throws Exception{
-		System.out.println(this.chunks.size());
+		//System.out.println(this.chunks.size());
 		if(n>=this.chunks.size()) {
 			return null;
 		}
-		System.out.println("seek "+(this._firstpos+this.chunks.get(n).offset ));
+		//System.out.println("seek "+(this._firstpos+this.chunks.get(n).offset ));
 		this.dictzip.seek(this._firstpos+this.chunks.get(n).offset);
 		int size = this.chunks.get(n).size;
 		byte [] buff = new byte[size];
-		System.out.println(this.dictzip.read(buff));
-		/* */
+		this.dictzip.read(buff);
+		/* jzlib */
 		ZInputStream zIn=new ZInputStream(new ByteArrayInputStream(buff), true);
 		ByteArrayOutputStream byteStream = new ByteArrayOutputStream(); 
 		byte[] buf = new byte[1024]; 
@@ -252,5 +253,9 @@ public class DictZipFile {
 	public void runtest() {
 		System.out.println("chunklen="+this.chlen);
 		System.out.println("_firstpos="+this._firstpos);
+	}
+	
+	public String test() {
+		return ("chunklen="+this.chlen);
 	}
 }

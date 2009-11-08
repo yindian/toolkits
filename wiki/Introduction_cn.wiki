@@ -1,0 +1,36 @@
+English version, go to [Introduction]
+
+= 介绍 =
+  这个项目的目的是开发在包括Windows, Linux, Symbian和Android在内的系统中使用的小工具.
+
+= 项目结构 =
+  [http://code.google.com/p/toolkits/source/browse/#svn/trunk 代码结构]
+
+  == Windows ==
+  所有 Windows 下的程序被组织在一名为<b>windows</b>的解决方案(solution)中.每个程序作为一个项目.
+
+  == Android ==
+  所有 Android 下的程序被组织在一名为<b>android</b>的目录中. 每个程序作为一个项目.
+
+
+= 内容(持续更新中) =
+  == Windows ==
+    * [HiBaiduAlbumDownloader]:下载百度空间相册的程序.
+    * [ShutdownMonitor]: 关闭显示器的程序.
+    * [WindowsTime]: 显示windows的安装时间、已启动的时间和当前的时间.
+    * [WindowsConsole]: 展示如何改变控制台的颜色的代码.
+    * [md5sum]: 计算文件md5校验和的程序.
+    * [sha1sum]: 计算文件sha1校验和的程序.
+
+
+  == Android ==
+    * [YAStarDict]: Android版的[http://stardict.sourceforge.net/ StarDict]. 参见[http://stardict.sourceforge.net/ stardict主页].
+    * [DateDiff]: 计算日期差的小工具.
+
+  == Linux ==
+    * [rshutdown]: Linux关机程序.
+
+  == Misc ==
+    * [misc]: 一些有用代码片段.
+
+如果您发现什么bug或有什么功能建议， 请到[http://code.google.com/p/toolkits/issues/list Issues]提出

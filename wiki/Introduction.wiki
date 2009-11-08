@@ -1,3 +1,4 @@
+中文版参见 [Introduction_cn 介绍]
 = Introduction =
   This project contents some toolkit for Windows, Linux, Symbian and Android.
 

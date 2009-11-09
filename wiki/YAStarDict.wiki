@@ -7,7 +7,9 @@
 [http://pyutility.appspot.com/imageservice/get/6?nouse=yastardict.jpg]
 
 = 使用 =
-  该程序直接使用了[http://stardict.sourceforge.net/ StarDict]的词典, 要使用该程序, 请到[http://stardict.sourceforge.net/ StarDict]下载词典。然后使用 pytoolkits 的工具预处理辞典。将得到的 .yaidx 文件与字典文件一起保存.
+  该程序直接使用了[http://stardict.sourceforge.net/ StarDict]的词典, 要使用该程序, 请到[http://stardict.sourceforge.net/ StarDict]下载词典。
+
+  关于在android模拟器上安装测试该程序，请参见[http://linxh.appspot.com/blog/get/47 stardict的android实现]
 
 
 = 致谢 =

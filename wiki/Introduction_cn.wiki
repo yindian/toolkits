@@ -12,6 +12,8 @@ English version, go to [Introduction]
   == Android ==
   所有 Android 下的程序被组织在一名为<b>android</b>的目录中. 每个程序作为一个项目.
 
+  == Symbian == 
+  所有 Symbian 下的程序被组织在一名为<b>symbian</b>的目录中. 每个程序作为一个Carbide 2.0项目.
 
 = 内容(持续更新中) =
   == Windows ==
@@ -22,10 +24,13 @@ English version, go to [Introduction]
     * [md5sum]: 计算文件md5校验和的程序.
     * [sha1sum]: 计算文件sha1校验和的程序.
 
-
   == Android ==
     * [YAStarDict]: Android版的[http://stardict.sourceforge.net/ StarDict]. 参见[http://stardict.sourceforge.net/ stardict主页].
     * [DateDiff]: 计算日期差的小工具.
+
+  == Symbian ==
+    * [gDateDiff]: 计算日期差的小工具.
+    * [gCalSyncer]: 同步Symbian日历和Google日历的工具
 
   == Linux ==
     * [rshutdown]: Linux关机程序.

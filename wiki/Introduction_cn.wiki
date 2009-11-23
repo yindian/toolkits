@@ -29,7 +29,7 @@ English version, go to [Introduction]
     * [DateDiff]: 计算日期差的小工具.
 
   == Symbian ==
-    * [gDateDiff]: 计算日期差的小工具.
+    * [sDateDiff]: 计算日期差的小工具.
     * [gCalSyncer]: 同步Symbian日历和Google日历的工具
 
   == Linux ==

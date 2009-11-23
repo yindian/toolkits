@@ -7,6 +7,8 @@
   All programs for Windows are organized as a solution named <b>windows</b>. Each program has a project.
   == Android ==
   All programs for Android are organized in <b>android</b> directory . Each program has a project.
+  == Symbian ==
+  All programs for Symbian are organized in <b>symbian</b> directory. Each program has a subdirectory, and it is a Carbide 2.0 project.
 
 = Content =
   == Windows ==
@@ -20,6 +22,10 @@
   == Android ==
     * [DateDiff]: Calculate days between two dates.
     * [YAStarDict]: An Android [http://stardict.sourceforge.net/ StarDict]. Refer to [http://stardict.sourceforge.net/ StarDict] for more information.
+
+  == Symbian ==
+    * [DateDiff]: Calculate days between two dates.
+    * [gCalSyncer]: A Symbian client to synchronize Symbian Calendar and  Google Calendar.
 
   == Linux ==
     * [rshutdown]: a daemon progress to shutdown linux.

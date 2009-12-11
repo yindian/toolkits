@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sha1sum", "sha1sum\sha1sum.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiBaiduAlbumDownloader", "HiBaiduAlbumDownloader\HiBaiduAlbumDownloader.csproj", "{E2D00877-A02D-4A8C-98FB-33F3A64E3697}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sosodadaCheater", "sosodadaCheater\sosodadaCheater.csproj", "{9E7340E9-708F-4A05-924A-B0D5FADB1855}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,17 @@ Global
 		{E2D00877-A02D-4A8C-98FB-33F3A64E3697}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{E2D00877-A02D-4A8C-98FB-33F3A64E3697}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{E2D00877-A02D-4A8C-98FB-33F3A64E3697}.Release|Win32.ActiveCfg = Release|Any CPU
+		{9E7340E9-708F-4A05-924A-B0D5FADB1855}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E7340E9-708F-4A05-924A-B0D5FADB1855}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E7340E9-708F-4A05-924A-B0D5FADB1855}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{9E7340E9-708F-4A05-924A-B0D5FADB1855}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{9E7340E9-708F-4A05-924A-B0D5FADB1855}.Debug|Win32.ActiveCfg = Release|Any CPU
+		{9E7340E9-708F-4A05-924A-B0D5FADB1855}.Debug|Win32.Build.0 = Release|Any CPU
+		{9E7340E9-708F-4A05-924A-B0D5FADB1855}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E7340E9-708F-4A05-924A-B0D5FADB1855}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E7340E9-708F-4A05-924A-B0D5FADB1855}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{9E7340E9-708F-4A05-924A-B0D5FADB1855}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{9E7340E9-708F-4A05-924A-B0D5FADB1855}.Release|Win32.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,6 +4,8 @@
 
 = 使用说明 =
 
-   ftplist.exe -h host[:port] -u username -p password
+   {{{
+ftplist.exe -h host[:port] -u username -p password
+   }}}
 
 = 更新 =

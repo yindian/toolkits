@@ -40,7 +40,15 @@ namespace FtpList
     {
         static void Traverse(FTPClient client, StreamWriter sw, string dir, int depth)
         {
-            client.ChDir(dir);
+            try
+            {
+                client.ChDir(dir);
+            }
+            catch (IOException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return;
+            }
 
             FTPFile[] lists = client.getFileList();
             for (int i = 0; i < lists.Length; i++)
@@ -69,6 +77,45 @@ namespace FtpList
             client.ChDir("..");
         }
 
+        static void Traverse(FTPClient client, string dir, int depth)
+        {
+            try
+            {
+                client.ChDir(dir);
+            }
+            catch (IOException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return;
+            }
+
+            FTPFile[] lists = client.getFileList();
+            for (int i = 0; i < lists.Length; i++)
+            {
+                FTPFile f = lists[i];
+                Byte[] enc = client.ENCODING.GetBytes(f.filename);
+                byte[] def = Encoding.Convert(client.ENCODING, Encoding.Default, enc);
+                string result = Encoding.Default.GetString(def);
+
+                for (int j = 0; j < depth; j++)
+                {
+                    Console.Write("--");
+
+                }
+                Console.WriteLine(result);
+
+                if (f.type == FTPFile.DIRTYPE)
+                {
+                    if (!(f.filename.Equals(".") || f.filename.Equals("..")))
+                    {
+                        Traverse(client, result, depth + 1);
+                    }
+                }
+            }
+            client.ChDir("..");
+        }
+
+
         static void Main(string[] args)
         {
             /*
@@ -90,7 +137,38 @@ namespace FtpList
             reader.Close();
             response.Close();
              * */
+            string user = "";
+            string pass = "";
+            string host = "";
+            int port = 21;
 
+            if (args.Length < 3)
+            {
+                Console.WriteLine("USAGE:");
+                Console.WriteLine("      ftplist.exe host[:port] username password");
+            }
+            else
+            {
+                host = args[0];
+                user = args[1];
+                pass = args[2];
+
+                char[] seperator = { ':' };
+                string[] mess = host.Split(seperator);
+                if (mess.Length == 2)
+                {
+                    host = mess[0];
+                    port = Int32.Parse(mess[1]);
+                }
+
+                //**
+                FTPClient client = new FTPClient(host, "/", port, user, pass);
+                Traverse(client, "/", 0);
+                //*/
+
+            }
+
+            /*
             FTPClient client = new FTPClient("movie.ipv6.scau.edu.cn", "/", 21, "anonymous", "toolkits@googlecode.com");
             //FTPClient client = new FTPClient("consummate.3322.org", "/", 2121, "HSC", "HSC");
             //FTPClient client = new FTPClient("162.105.69.120", "/_public/upload/", 21, "sms", "sms");
@@ -109,6 +187,7 @@ namespace FtpList
                 sw.Close();
                 client.Close();
             }
+            //*/
         }
     }
 }

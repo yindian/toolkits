@@ -4,8 +4,14 @@
 
 = 使用说明 =
 
-   {{{
-ftplist.exe -h host[:port] -u username -p password
-   }}}
+ftplist.exe *_host`[`:port`]`_*  *_username_* *_password_*
 
-= 更新 =
+= 系统要求 =
+    由于本程序是用C#编写的，所以需要 .Net Framework 
+
+= 下载 =
+[http://code.google.com/p/toolkits/downloads/list 下载链接] 或 [http://toolkits.googlecode.com/files/FtpList.exe 直接下载]
+备注: Build on code [http://code.google.com/p/toolkits/source/detail?r=95  r95]
+= 反馈 =
+
+[http://code.google.com/p/toolkits/issues/list 报告错误]，或者[http://code.google.com/p/toolkits/issues/list 功能建议]

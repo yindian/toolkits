@@ -1,0 +1,9 @@
+= 简介 =
+
+  Windows下列出一个ftp服务器上所有文件列表的小程序.
+
+= 使用说明 =
+
+   ftplist.exe -h host[:port] -u username -p password
+
+= 更新 =
